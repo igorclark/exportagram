@@ -17,7 +17,7 @@ Getting Python set up can be arseache, and explaining it is beyond the scope of 
 
 - Access token & User ID for Instagram API
 
-#### IF YOU DON'T ALREADY HAVE THESE, YOU NEED:
+#### IF YOU DON'T ALREADY HAVE THOSE, YOU NEED:
 
 - Working credentials for a registered Instagram API OAuth Client.
 
@@ -44,6 +44,10 @@ You now have your user ID and access_token.
 
 #### YOU CAN NOW RUN exportagram.py LIKE SO:
 
-	$ python exportagram.py &lt;directory_to_download_images_to&gt; &lt;your_user_id&gt; &lt;your.access.token.string&gt;
+	$ python exportagram.py <directory_to_download_images_to> <your_user_id> <your.access.token.string>
 
-It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file.
+It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file. It doesn't bother with comments or anything that links to other user accounts; it does get caption, tags, date, location and the images themselves.
+
+This obviously doesn't get your pictures onto any other services, but it means you have a backup of them all in the event your Instagram account is closed or deleted or the service goes down or, you know, anything like that.
+
+
