@@ -13,8 +13,8 @@ This is a dirty hack by a total Python newbie to export all your Instagram image
 
 - Working credentials for a registered Instagram API OAuth Client.
 
-- If you have one of those already set up, get the credentials from http://instagram.com/developer/clients/manage/
-- If you don't have one set up, create a new one at http://instagram.com/developer/clients/register/ - put anything into "Application Name", "Description" and "Website URL", just to keep the form happy, and put "http://localhost/" (without the quotes) into "OAuth redirect_uri", and press "Register". The page that comes back should give you Client ID, Client Secret, and the Redirect URI you typed in.
+-- If you have one of those already set up, get the credentials from http://instagram.com/developer/clients/manage/
+-- If you don't have one set up, create a new one at http://instagram.com/developer/clients/register/ - put anything into "Application Name", "Description" and "Website URL", just to keep the form happy, and put "http://localhost/" (without the quotes) into "OAuth redirect_uri", and press "Register". The page that comes back should give you Client ID, Client Secret, and the Redirect URI you typed in.
 
 Once this is set up, you need to run this script:
 
