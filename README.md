@@ -2,7 +2,7 @@
 
 #### WHAT IS THIS?
 
-This is a dirty hack, by a total Python newbie. It exports all your Instagram images, with a bit of metadata for each one, into a directory you specify. It doesn't put the pictures anywhere other than your own computer, but it means you have a backup of them all in case Instagram becomes unavailable for any reason.
+This is a dirty, dirty hack by a Python newbie. It exports all your Instagram images, with a bit of metadata for each one, into a directory you specify. It doesn't put the pictures anywhere other than your own computer, but it means you have a backup of them all in case Instagram becomes unavailable for any reason.
 
 #### PREREQUISITES
 
