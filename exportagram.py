@@ -7,7 +7,6 @@ from os.path import exists
 from os import makedirs, sep
 from sys import argv, exit
 
-## construct url
 script, dl_dir, user_id, access_token = argv
 url = "https://api.instagram.com/v1/users/%s/media/recent/?access_token=%s&count=100" % (user_id, access_token)
 
@@ -24,43 +23,43 @@ data = simplejson.loads(response.read())
 next_max_id = data['pagination']['next_max_id']
 
 while next_max_id:
-	for i in data['data']:
-		if i['caption']:
-			caption = i['caption']['text']
+	for image in data['data']:
+		if image['caption']:
+			caption = image['caption']['text']
 		else:
 			caption = ''
 
 		location = dict()
-		if i['location']:
+		if image['location']:
 			for el in ['latitude', 'longitude', 'name']:
-				if i['location'].__contains__(el):
-					location[el] = i['location'][el]
+				if image['location'].__contains__(el):
+					location[el] = image['location'][el]
 			
-		p = {
-			'id': i['id'],
+		metadata = {
+			'id': image['id'],
 			'caption': caption,
-			'created_time': i['created_time'],
-			'tags': i['tags'],
+			'created_time': image['created_time'],
+			'tags': image['tags'],
 			'location': location,
 			'images': [
-				{'type': 'lo', 'url': i['images']['low_resolution']['url']},
-				{'type': 'hi', 'url': i['images']['standard_resolution']['url']},
-				{'type': 'th', 'url': i['images']['thumbnail']['url']}
+				{'type': 'lo', 'url': image['images']['low_resolution']['url']},
+				{'type': 'hi', 'url': image['images']['standard_resolution']['url']},
+				{'type': 'th', 'url': image['images']['thumbnail']['url']}
 			],
 		}
-		print "%s - %s" % (p['id'], p['caption'])
-		img_dir = dl_dir + sep + p['id']
+		print "%s - %s" % (metadata['id'], metadata['caption'])
+		img_dir = dl_dir + sep + metadata['id']
 		if not exists(img_dir):
 			makedirs(img_dir)
 
-		json_file_path = img_dir + sep + p['id'] + '_json.txt'
+		json_file_path = img_dir + sep + metadata['id'] + '_json.txt'
 		if not exists(json_file_path):
 			with open(json_file_path, "w") as json_file:
-				json_file.write(simplejson.dumps(p))
+				json_file.write(simplejson.dumps(metadata))
 
-		for img in p['images']:
-			img_file_path = img_dir + sep + p['id'] + '_' + img['type']
-			match = re.compile(".*(?P<file_type>\.[a-z]+)$").match(img['url'])
+		for imgdata in metadata['images']:
+			img_file_path = img_dir + sep + metadata['id'] + '_' + imgdata['type']
+			match = re.compile(".*(?P<file_type>\.[a-z]+)$").match(imgdata['url'])
 			img_file_ext = None
 			if match:
 				img_file_ext = match.group('file_type')
@@ -68,8 +67,8 @@ while next_max_id:
 					continue
 
 			opener = urllib2.build_opener()
-			opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-			response = opener.open(img['url'])
+			opener.addheaders = [('User-agent', 'Mozilla/5.0')] # just in case
+			response = opener.open(imgdata['url'])
 
 			if not img_file_ext:
 				img_file_ext = mimetypes.guess_extension(response.info()['Content-Type'])
