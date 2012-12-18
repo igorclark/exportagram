@@ -1,6 +1,6 @@
 This is a dirty hack by a total Python newbie to export all your Instagram images, with a bit of metadata for each one, into a directory you specify.
 
-PREREQUISITES
+## PREREQUISITES
 
 - simplejson, urllib2
 - Instagram Python client from https://github.com/Instagram/python-instagram
