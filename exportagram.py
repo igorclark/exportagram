@@ -14,6 +14,7 @@ url = "https://api.instagram.com/v1/users/%s/media/recent/?access_token=%s&count
 if not exists(dl_dir):
 	makedirs(dl_dir)
 
+# make sure credentials work
 try:
 	response = urllib2.urlopen(url)
 except urllib2.HTTPError:
@@ -48,18 +49,22 @@ while True:
 				{'type': 'th', 'url': image['images']['thumbnail']['url']}
 			],
 		}
+		print "%s - %s" % (metadata['id'], metadata['caption'])
+
+		# lay out subdirectories in y/m/d & name individual folders with timestamp
 		ym = datetime.datetime.fromtimestamp(int(metadata['created_time'])).strftime('%Y' + sep + '%m' + sep + '%d')
 		hms = datetime.datetime.fromtimestamp(int(metadata['created_time'])).strftime('%H-%M-%S')
-		print "%s - %s" % (metadata['id'], metadata['caption'])
 		img_dir = dl_dir + sep + ym + sep + hms + '_' + metadata['id']
 		if not exists(img_dir):
 			makedirs(img_dir)
 
+		# write out data file
 		json_file_path = img_dir + sep + metadata['id'] + '_json.txt'
 		if not exists(json_file_path):
 			with open(json_file_path, "w") as json_file:
 				json_file.write(simplejson.dumps(metadata))
 
+		# work out img file type
 		for imgdata in metadata['images']:
 			img_file_path = img_dir + sep + metadata['id'] + '_' + imgdata['type']
 			match = re.compile(".*(?P<file_type>\.[a-z]+)$").match(imgdata['url'])
@@ -81,14 +86,16 @@ while True:
 			with open(img_file_path + img_file_ext, "wb") as img_file:
 				img_file.write(response.read())
 
-	if not next_max_id:
-		break
-
-	new_url = url + "&max_id=" + next_max_id
-	response = urllib2.urlopen(new_url)
-	data = simplejson.loads(response.read())
-	if data['pagination'].__contains__('next_max_id'):
-		next_max_id = data['pagination']['next_max_id']
+	# got more pages to view?
+	if next_max_id:
+		new_url = url + "&max_id=" + next_max_id
+		response = urllib2.urlopen(new_url)
+		data = simplejson.loads(response.read())
+		if data['pagination'].__contains__('next_max_id'):
+			next_max_id = data['pagination']['next_max_id']
+		else:
+			next_max_id = None
+	# last retrieve was beginning of timeline, no more pagination
 	else:
-		next_max_id = None
+		break
 
