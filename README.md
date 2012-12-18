@@ -1,8 +1,15 @@
-This is a dirty hack by a total Python newbie to export all your Instagram images, with a bit of metadata for each one, into a directory you specify.
+## EXPORTAGRAM
+
+#### WHAT IS THIS?
+
+This is a dirty hack, by a total Python newbie. It exports all your Instagram images, with a bit of metadata for each one, into a directory you specify.
 
 #### PREREQUISITES
 
 - Working Python installation with pip
+
+Getting Python set up can be arseache, and explaining it is beyond the scope of this README. Google "install pip python" if you want to have a go. Once you have, you can go ahead and install:
+
 - Python library: simplejson
 - Instagram Python client: https://github.com/Instagram/python-instagram
 
