@@ -8,6 +8,9 @@ This is a dirty hack by a total Python newbie to export all your Instagram image
 #### TO GET IT WORKING YOU NEED
 
 - Access token & User ID for Instagram API
+
+#### IF YOU DON'T ALREADY HAVE THESE, YOU NEED
+
 - Working credentials for a registered Instagram API OAuth Client.
 
 - If you have one of those already set up, get the credentials from http://instagram.com/developer/clients/manage/
@@ -29,8 +32,10 @@ Once this is set up, you need to run this script:
 ('&lt;your.access.token.string&gt;', {'username': 'igorclark', 'bio': 'twitter/@igorclark', 'website': 'http://www.igorclark.net', 'profile_picture': 'http://images.instagram.com/profiles/profile_166735_75sq_1345748031.jpg',
  'full_name': u'Igor Clark \ue00e', 'id': '&lt;your_user_id&gt;'})
 
-You now have your user ID and access_token. You can now run exportagram.py like so:
+You now have your user ID and access_token.
 
-$ python exportagram.py &lt;directory_to_download_images_to&gt; &lt;your_user_id&gt; &lt;your.access.token.string&gt;
+#### YOU CAN NOW RUN exportagram.py LIKE SO
+
+	$ python exportagram.py &lt;directory_to_download_images_to&gt; &lt;your_user_id&gt; &lt;your.access.token.string&gt;
 
 It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file.
