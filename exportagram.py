@@ -2,6 +2,7 @@ import urllib2
 import simplejson
 import re
 import mimetypes
+import datetime
 
 from os.path import exists
 from os import makedirs, sep
@@ -22,7 +23,7 @@ except urllib2.HTTPError:
 data = simplejson.loads(response.read())
 next_max_id = data['pagination']['next_max_id']
 
-while next_max_id:
+while True:
 	for image in data['data']:
 		if image['caption']:
 			caption = image['caption']['text']
@@ -47,8 +48,10 @@ while next_max_id:
 				{'type': 'th', 'url': image['images']['thumbnail']['url']}
 			],
 		}
+		ym = datetime.datetime.fromtimestamp(int(metadata['created_time'])).strftime('%Y' + sep + '%m' + sep + '%d')
+		hms = datetime.datetime.fromtimestamp(int(metadata['created_time'])).strftime('%H-%M-%S')
 		print "%s - %s" % (metadata['id'], metadata['caption'])
-		img_dir = dl_dir + sep + metadata['id']
+		img_dir = dl_dir + sep + ym + sep + hms + '_' + metadata['id']
 		if not exists(img_dir):
 			makedirs(img_dir)
 
@@ -78,9 +81,14 @@ while next_max_id:
 			with open(img_file_path + img_file_ext, "wb") as img_file:
 				img_file.write(response.read())
 
+	if not next_max_id:
+		break
 
 	new_url = url + "&max_id=" + next_max_id
 	response = urllib2.urlopen(new_url)
 	data = simplejson.loads(response.read())
-	next_max_id = data['pagination']['next_max_id']
+	if data['pagination'].__contains__('next_max_id'):
+		next_max_id = data['pagination']['next_max_id']
+	else:
+		next_max_id = None
 
