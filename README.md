@@ -37,7 +37,7 @@ Once this is set up, you need to run this script:
 
 - Copy the &lt;hex_code&gt; bit and paste it back in to the still-running get_access_token.py script. It'll output something like this:
 
-('&lt;your.access.token.string&gt;', {'username': 'igorclark', 'bio': 'twitter/@igorclark', 'website': 'http://www.igorclark.net', 'profile_picture': 'http://images.instagram.com/profiles/profile_166735_75sq_1345748031.jpg',
+	('&lt;your.access.token.string&gt;', {'username': 'igorclark', 'bio': 'twitter/@igorclark', 'website': 'http://www.igorclark.net', 'profile_picture': 'http://images.instagram.com/profiles/profile_166735_75sq_1345748031.jpg',
  'full_name': u'Igor Clark \ue00e', 'id': '&lt;your_user_id&gt;'})
 
 You now have your user ID and access_token.
