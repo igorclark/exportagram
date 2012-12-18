@@ -33,7 +33,10 @@ Once this is set up, you need to run this script:
 - Copy the long URL it gives you, paste it into your browser's location bar and hit enter. It'll take you the Instagram site to get an access token to let your export script get access.
 - Follow the steps and hit "Allow". It'll send you to a URL like this:
 
-	http://localhost/?code=&lt;hex_code&gt;
+```bash
+http://localhost/?code=&lt;hex_code&gt;
+```
+
 
 - Copy the &lt;hex_code&gt; bit and paste it back in to the still-running get_access_token.py script. It'll output something like this:
 
