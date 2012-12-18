@@ -22,15 +22,15 @@ Once this is set up, you need to run this script:
 - Copy the long URL it gives you, paste it into your browser's location bar and hit enter. It'll take you the Instagram site to get an access token to let your export script get access.
 - Follow the steps and hit "Allow". It'll send you to a URL like this:
 
-	http://localhost/?code=<hex_code>
+	http://localhost/?code=&lt;hex_code&gt;
 
-- Copy the <hex_code> bit and paste it back in to the still-running get_access_token.py script. It'll output something like this:
+- Copy the &lt;hex_code&gt; bit and paste it back in to the still-running get_access_token.py script. It'll output something like this:
 
-('<your.access.token.string>', {'username': 'igorclark', 'bio': 'twitter/@igorclark', 'website': 'http://www.igorclark.net', 'profile_picture': 'http://images.instagram.com/profiles/profile_166735_75sq_1345748031.jpg',
- 'full_name': u'Igor Clark \ue00e', 'id': '<your_user_id>'})
+('&lt;your.access.token.string&gt;', {'username': 'igorclark', 'bio': 'twitter/@igorclark', 'website': 'http://www.igorclark.net', 'profile_picture': 'http://images.instagram.com/profiles/profile_166735_75sq_1345748031.jpg',
+ 'full_name': u'Igor Clark \ue00e', 'id': '&lt;your_user_id&gt;'})
 
 You now have your user ID and access_token. You can now run exportagram.py like so:
 
-$ python exportagram.py <directory_to_download_images_to> <your_user_id> <your.access.token.string>
+$ python exportagram.py &lt;directory_to_download_images_to&gt; &lt;your_user_id&gt; &lt;your.access.token.string&gt;
 
-It'll create <directory_to_download_images_to> if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file.
+It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file.
