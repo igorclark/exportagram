@@ -56,8 +56,8 @@ It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and wi
 
 #### TODO
 
-Write importers for other services. E.g. Flickr. They have a shiny and actually rather good new mobile app.
+Write importers for other services. E.g. Flickr - they have a shiny and actually rather good new mobile app.
 
 #### NB THIS PROBABLY HAS HORRIBLE BUGS
 
-It's also horribly non-pythonic, I'm sure - I'm just learning python, so WHATEVER. It did just download my 2239 photos from http://instagram.com/igorclark so I've ironed a few little bugs out already - if you find more, let me know, or, you know fix 'em and issue a pull request.
+It's also dreadful hackery, and I'm sure horribly non-pythonic - I'm just learning python, so not losing any sleep. It did just download my 2239 photos from (http://instagram.com/igorclark), so I've ironed a few little bugs out already - if you find more, let me know, or, you know fix 'em and issue a pull request.
