@@ -1,40 +1,54 @@
 import urllib2
 import simplejson
+import re
+import mimetypes
+
 from os.path import exists
 from os import makedirs, sep
-import mimetypes
-import re
-from sys import argv
+from sys import argv, exit
 
+## construct url
 script, dl_dir, user_id, access_token = argv
-url = "https://api.instagram.com/v1/users/%s/media/recent/?access_token=%s&count=10" % (user_id, access_token)
+url = "https://api.instagram.com/v1/users/%s/media/recent/?access_token=%s&count=100" % (user_id, access_token)
 
 if not exists(dl_dir):
 	makedirs(dl_dir)
 
-response = urllib2.urlopen(url)
+try:
+	response = urllib2.urlopen(url)
+except urllib2.HTTPError:
+	print "HTTP error. Is the user_id and access_token correct?"
+	exit(1)
+
 data = simplejson.loads(response.read())
 next_max_id = data['pagination']['next_max_id']
 
 while next_max_id:
 	for i in data['data']:
+		if i['caption']:
+			caption = i['caption']['text']
+		else:
+			caption = ''
+
+		location = dict()
+		if i['location']:
+			for el in ['latitude', 'longitude', 'name']:
+				if i['location'].__contains__(el):
+					location[el] = i['location'][el]
+			
 		p = {
 			'id': i['id'],
-			'title': i['caption']['text'],
+			'caption': caption,
 			'created_time': i['created_time'],
 			'tags': i['tags'],
-			'location': {
-				'lat': i['location']['latitude'],
-				'long': i['location']['longitude'],
-				'name': i['location']['name']
-			},
+			'location': location,
 			'images': [
 				{'type': 'lo', 'url': i['images']['low_resolution']['url']},
 				{'type': 'hi', 'url': i['images']['standard_resolution']['url']},
 				{'type': 'th', 'url': i['images']['thumbnail']['url']}
 			],
 		}
-		print "%s - %s" % (p['id'], p['title'])
+		print "%s - %s" % (p['id'], p['caption'])
 		img_dir = dl_dir + sep + p['id']
 		if not exists(img_dir):
 			makedirs(img_dir)

@@ -42,7 +42,7 @@ Once this is set up, you need to run this script:
 
 You now have your user ID and access_token.
 
-#### YOU CAN NOW RUN exportagram.py LIKE SO:
+#### YOU CAN NOW RUN exportagram.py IN YOUR TERMINALLIKE SO:
 
 	$ python exportagram.py <directory_to_download_images_to> <your_user_id> <your.access.token.string>
 
