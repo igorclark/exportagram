@@ -2,7 +2,7 @@
 
 #### WHAT IS THIS?
 
-This is a dirty hack, by a total Python newbie. It exports all your Instagram images, with a bit of metadata for each one, into a directory you specify.
+This is a dirty hack, by a total Python newbie. It exports all your Instagram images, with a bit of metadata for each one, into a directory you specify. It doesn't put the pictures anywhere other than your own computer, but it means you have a backup of them all in case Instagram becomes unavailable for any reason.
 
 #### PREREQUISITES
 
@@ -53,8 +53,6 @@ You now have your user ID and access_token.
 	$ python exportagram.py <directory_to_download_images_to> <your_user_id> <your.access.token.string>
 
 It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file. It doesn't bother with comments or anything that links to other user accounts; it does get caption, tags, date, location and the images themselves.
-
-This obviously doesn't get your pictures onto any other services, but it means you have a backup of them all in the event your Instagram account is closed or deleted or the service goes down or, you know, anything like that.
 
 #### TODO
 
