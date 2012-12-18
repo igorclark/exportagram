@@ -48,7 +48,7 @@ http://localhost/?code=<hex_code>
 
 You now have your user ID and access_token.
 
-#### YOU CAN NOW RUN exportagram.py IN YOUR TERMINALLIKE SO:
+#### YOU CAN NOW RUN exportagram.py IN YOUR TERMINAL LIKE SO:
 
 	$ python exportagram.py <directory_to_download_images_to> <your_user_id> <your.access.token.string>
 
