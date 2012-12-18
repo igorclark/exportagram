@@ -34,7 +34,7 @@ Once this is set up, you need to run this script:
 - Follow the steps and hit "Allow". It'll send you to a URL like this:
 
 ```bash
-http://localhost/?code=&lt;hex_code&gt;
+http://localhost/?code=<hex_code>
 ```
 
 
