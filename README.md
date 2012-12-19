@@ -52,7 +52,7 @@ You now have your user ID and access_token.
 
 	$ python exportagram.py <directory_to_download_images_to> <your_user_id> <your.access.token.string>
 
-It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file. It doesn't bother with comments or anything that links to other user accounts; it does get caption, tags, date, location and the images themselves.
+It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and will make one directory for each image, containing lo-res/standard-res/thumbnail versions of the image and a JSON metadata file. It organises image directories inside a year/month/date folder hierarchy. It doesn't bother with comments or anything that links to other user accounts; it does get caption, tags, date, location and the images themselves.
 
 #### TODO
 
