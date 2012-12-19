@@ -60,4 +60,4 @@ Write importers for other services. E.g. Flickr - they have a shiny and actually
 
 #### NB THIS PROBABLY HAS HORRIBLE BUGS
 
-It's also dreadful hackery, and I'm sure horribly non-pythonic - I'm just learning python, so not losing any sleep. It did just download my 2239 photos from (http://instagram.com/igorclark), so I've ironed a few little bugs out already - if you find more, let me know, or, you know fix 'em and issue a pull request.
+It's also dreadful hackery, and I'm sure horribly non-pythonic - I'm just learning python, so not losing any sleep. It did just download my more than 2K photos (from http://instagram.com/igorclark), so I've ironed a few little bugs out already - if you find more, let me know, or, you know fix 'em and issue a pull request.
