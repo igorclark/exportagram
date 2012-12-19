@@ -2,7 +2,7 @@
 
 #### WHAT IS THIS?
 
-This is a dirty, dirty hack by a Python newbie. It exports all your Instagram images, with a bit of metadata for each one, into a directory you specify. It doesn't put the pictures anywhere other than your own computer, but it means you have a backup of them all in case Instagram becomes unavailable for any reason.
+This is a quick, dirty hack to export all your Instagram images, with a bit of metadata for each one, into a directory you specify. It doesn't put the pictures anywhere other than your own computer, but it means you have a backup of them all in case Instagram becomes unavailable for any reason.
 
 #### PREREQUISITES
 
@@ -60,4 +60,4 @@ Write importers for other services. E.g. Flickr - they have a shiny and actually
 
 #### NB THIS PROBABLY HAS HORRIBLE BUGS
 
-It's also dreadful hackery, and I'm sure horribly non-pythonic - I'm just learning python, so not losing any sleep. It did just download my more than 2K photos (from http://instagram.com/igorclark), so I've ironed a few little bugs out already - if you find more, let me know, or, you know fix 'em and issue a pull request.
+It's also dreadful hackery, and no doubt horribly un-pythonic, but I'm just learning python so not losing any sleep. It did just download my more than 2K photos (from http://instagram.com/igorclark), so I've ironed a few little bugs out already - if you find more, let me know, or, you know fix 'em and issue a pull request.
