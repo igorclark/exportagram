@@ -57,6 +57,7 @@ It'll create &lt;directory_to_download_images_to&gt; if it doesn't exist, and wi
 #### TODO
 
 - Convert to use "requests" library, waaay nicer than urllib2
+- setup.py voodoo
 - Write importers for other services. E.g. Flickr - they have a shiny and actually rather good new mobile app.
 
 #### NB THIS PROBABLY HAS HORRIBLE BUGS
